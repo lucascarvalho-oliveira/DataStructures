@@ -19,11 +19,10 @@ public class MyLinkedList<T> implements MyList <T>{
         this.size = 0;
     }
 
-    // Assinaturas obrigatórias (implementação da lógica deve ser feita aqui)
-    @Override public void addFirst(T item) { /* lógica */ }
-    @Override public void addLast(T item) { /* lógica */ }
-    @Override public void insertAt(int i, T item) { /* lógica */ }
-    @Override public void addSorted(T element) { /* lógica */ }
+    @Override public void addFirst(T item) { }
+    @Override public void addLast(T item) {  }
+    @Override public void insertAt(int i, T item) {  }
+    @Override public void addSorted(T element) {  }
     @Override public T removeFirst() { return null; }
     @Override public T removeLast() { return null; }
     @Override public T removeAt(int i) { return null; }
