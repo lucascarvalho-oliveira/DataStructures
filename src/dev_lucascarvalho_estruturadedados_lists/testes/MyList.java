@@ -1,0 +1,21 @@
+package dev_lucascarvalho_estruturadedados_lists.testes;
+
+public interface MyList <T>{
+
+        void addFirst(T item);
+        void addLast(T item);
+        void insertAt(int i, T item);
+        void addSorted(T element);
+
+        T removeFirst();
+        T removeLast();
+        T removeAt(int i);
+        boolean remove(T item);
+        void clear();
+
+        int find(T item);
+        T get(int i);
+        void set(int i, T item);
+
+        int size();
+}
