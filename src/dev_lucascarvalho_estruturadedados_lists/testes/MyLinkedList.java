@@ -2,11 +2,11 @@ package dev_lucascarvalho_estruturadedados_lists.testes;
 
 public class MyLinkedList<T> implements MyList <T>{
     private static class Node<T> {
-        T data;
+        T dados;
         Node<T> next;
 
-        Node(T data) {
-            this.data = data;
+        Node(T dados) {
+            this.dados = dados;
             this.next = null;
         }
     }
