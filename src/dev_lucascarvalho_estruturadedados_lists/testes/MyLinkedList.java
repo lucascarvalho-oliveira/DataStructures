@@ -19,10 +19,61 @@ public class MyLinkedList<T> implements MyList <T>{
         this.size = 0;
     }
 
-    @Override public void addFirst(T item) { }
-    @Override public void addLast(T item) {  }
-    @Override public void insertAt(int i, T item) {  }
-    @Override public void addSorted(T element) {  }
+    @Override public void addFirst(T item) {
+        Node<T> novo = new Node<>(item);
+
+        novo.next = head;
+        head = novo;
+
+        size++;
+    }
+
+    @Override public void addLast(T item) {
+        Node<T> novo = new Node<>(item);
+
+        if(head == null){
+            head = novo;
+        }else{
+            Node<T> atual = head;
+
+            while(atual.next != null){
+                atual = atual.next;
+            }
+
+            atual.next = novo;
+        }
+
+        size++;
+    }
+
+    @Override public void insertAt(int index, T item) {
+        if(index < 0 || index > size) {
+            throw new IndexOutOfBoundsException();
+        }
+
+        if(index == 0){
+            addFirst(item);
+        }
+
+        Node<T> novo = new Node<>(item);
+
+        Node<T> atual = head;
+
+        for(int i = 0; i < index - 1; i++){
+            atual = atual.next;
+        }
+
+        novo.next = atual.next;
+
+        atual.next = novo;
+
+        size++;
+    }
+
+    @Override public void addSorted(T element) {
+
+    }
+
     @Override public T removeFirst() { return null; }
     @Override public T removeLast() { return null; }
     @Override public T removeAt(int i) { return null; }
