@@ -51,7 +51,7 @@ public class MyLinkedList<T extends Comparable<T>> implements MyList <T>{
 
     @Override public void insertAt(int index, T item) {
         if(index < 0 || index > size) {
-            throw new IndexOutOfBoundsException();
+            throw new IndexOutOfBoundsException("Index incorreto!");
         }
 
         if(index == 0){
@@ -95,7 +95,7 @@ public class MyLinkedList<T extends Comparable<T>> implements MyList <T>{
 
     @Override public T removeFirst() {
         if(head == null){
-            throw new NoSuchElementException();
+            throw new NoSuchElementException("Lista vazia!");
         }
 
         T removido = head.dados;
@@ -133,7 +133,7 @@ public class MyLinkedList<T extends Comparable<T>> implements MyList <T>{
 
     @Override public T removeAt(int index) {
         if(index < 0 || index > size) {
-            throw new IndexOutOfBoundsException();
+            throw new IndexOutOfBoundsException("Index incorreto!");
         }
 
         if(index == 0){
@@ -203,7 +203,7 @@ public class MyLinkedList<T extends Comparable<T>> implements MyList <T>{
 
     @Override public T get(int index) {
         if(index < 0 || index >= size) {
-            throw new IndexOutOfBoundsException();
+            throw new IndexOutOfBoundsException("Index incorreto!");
         }
 
         Node<T> atual = head;
@@ -217,7 +217,7 @@ public class MyLinkedList<T extends Comparable<T>> implements MyList <T>{
 
     @Override public void set(int index, T item) {
         if(index < 0 || index >= size) {
-            throw new IndexOutOfBoundsException();
+            throw new IndexOutOfBoundsException("Index incorreto!");
         }
 
         Node<T> atual = head;
@@ -231,5 +231,31 @@ public class MyLinkedList<T extends Comparable<T>> implements MyList <T>{
 
     @Override public int size() {
         return this.size;
+    }
+
+    @Override public String toString() {
+
+        if(head == null) {
+            return "[]";
+        }
+
+        StringBuilder sb = new StringBuilder("[");
+
+        Node<T> atual = head;
+
+        while(atual != null) {
+
+            sb.append(atual.dados);
+
+            if(atual.next != null) {
+                sb.append(", ");
+            }
+
+            atual = atual.next;
+        }
+
+        sb.append("]");
+
+        return sb.toString();
     }
 }

@@ -1,5 +1,6 @@
 package dev_lucascarvalho_estruturadedados_lists.testes;
 
+import java.nio.channels.ScatteringByteChannel;
 import java.util.Scanner;
 
 public class Main {
@@ -23,102 +24,111 @@ public class Main {
             System.out.println("9 - Get");
             System.out.println("10 - Set");
             System.out.println("11 - Clear");
+            System.out.println("12 - Mostrar Lista");
             System.out.println("0 - Sair");
             System.out.println("Escolha: ");
             opcao = sc.nextInt();sc.nextLine();
             System.out.println();
 
-            switch (opcao) {
+            try {
+                switch (opcao) {
 
-                case 1:
-                    System.out.print("Valor: ");
-                    lista.addFirst(sc.nextInt());
-                    break;
+                    case 1:
+                        System.out.print("Valor: ");
+                        lista.addFirst(sc.nextInt());
+                        break;
 
-                case 2:
-                    System.out.print("Valor: ");
-                    lista.addLast(sc.nextInt());
-                    break;
+                    case 2:
+                        System.out.print("Valor: ");
+                        lista.addLast(sc.nextInt());
+                        break;
 
-                case 3:
-                    System.out.print("Índice: ");
-                    int indexInsert = sc.nextInt();
+                    case 3:
+                        System.out.print("Índice: ");
+                        int indexInsert = sc.nextInt();
 
-                    System.out.print("Valor: ");
-                    int valorInsert = sc.nextInt();
+                        System.out.print("Valor: ");
+                        int valorInsert = sc.nextInt();
 
-                    lista.insertAt(indexInsert, valorInsert);
-                    break;
+                        lista.insertAt(indexInsert, valorInsert);
+                        break;
 
-                case 4:
-                    System.out.println("Removido: " + lista.removeFirst());
-                    break;
+                    case 4:
+                        System.out.println("Removido: " + lista.removeFirst());
+                        break;
 
-                case 5:
-                    System.out.println("Removido: " + lista.removeLast());
-                    break;
+                    case 5:
+                        System.out.println("Removido: " + lista.removeLast());
+                        break;
 
-                case 6:
-                    System.out.print("Índice: ");
-                    int indexRemove = sc.nextInt();
+                    case 6:
+                        System.out.print("Índice: ");
+                        int indexRemove = sc.nextInt();
 
-                    System.out.println("Removido: " + lista.removeAt(indexRemove));
-                    break;
+                        System.out.println("Removido: " + lista.removeAt(indexRemove));
+                        break;
 
-                case 7:
-                    System.out.print("Valor: ");
-                    int valorRemove = sc.nextInt();
+                    case 7:
+                        System.out.print("Valor: ");
+                        int valorRemove = sc.nextInt();
 
-                    if(lista.remove(valorRemove)) {
-                        System.out.println("Elemento removido!");
-                    } else {
-                        System.out.println("Elemento não encontrado!");
-                    }
-                    break;
+                        if (lista.remove(valorRemove)) {
+                            System.out.println("Elemento removido!");
+                        } else {
+                            System.out.println("Elemento não encontrado!");
+                        }
+                        break;
 
-                case 8:
-                    System.out.print("Valor: ");
-                    int valorFind = sc.nextInt();
+                    case 8:
+                        System.out.print("Valor: ");
+                        int valorFind = sc.nextInt();
 
-                    int posicao = lista.find(valorFind);
+                        int posicao = lista.find(valorFind);
 
-                    if(posicao != -1) {
-                        System.out.println("Encontrado no índice: " + posicao);
-                    } else {
-                        System.out.println("Elemento não encontrado!");
-                    }
-                    break;
+                        if (posicao != -1) {
+                            System.out.println("Encontrado no índice: " + posicao);
+                        } else {
+                            System.out.println("Elemento não encontrado!");
+                        }
+                        break;
 
-                case 9:
-                    System.out.print("Índice: ");
-                    int indexGet = sc.nextInt();
+                    case 9:
+                        System.out.print("Índice: ");
+                        int indexGet = sc.nextInt();
 
-                    System.out.println("Valor: " + lista.get(indexGet));
-                    break;
+                        System.out.println("Valor: " + lista.get(indexGet));
+                        break;
 
-                case 10:
-                    System.out.print("Índice: ");
-                    int indexSet = sc.nextInt();
+                    case 10:
+                        System.out.print("Índice: ");
+                        int indexSet = sc.nextInt();
 
-                    System.out.print("Novo valor: ");
-                    int novoValor = sc.nextInt();
+                        System.out.print("Novo valor: ");
+                        int novoValor = sc.nextInt();
 
-                    lista.set(indexSet, novoValor);
-                    break;
+                        lista.set(indexSet, novoValor);
+                        break;
 
-                case 11:
-                    lista.clear();
-                    System.out.println("Lista limpa!");
-                    break;
+                    case 11:
+                        lista.clear();
+                        System.out.println("Lista limpa!");
+                        break;
 
-                case 0:
-                    System.out.println("Encerrando...");
-                    break;
+                    case 12:
+                        System.out.println(lista);
+                        break;
 
-                default:
-                    System.out.println("Opção inválida!");
+                    case 0:
+                        System.out.println("Encerrando...");
+                        break;
+
+                    default:
+                        System.out.println("Opção inválida!");
+                }
+
+            }catch (Exception e){
+                System.out.println(e.getMessage());
             }
-
         } while (opcao != 0);
 
         sc.close();

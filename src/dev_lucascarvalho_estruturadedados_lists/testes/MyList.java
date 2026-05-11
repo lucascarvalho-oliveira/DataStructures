@@ -18,4 +18,5 @@ public interface MyList <T>{
         void set(int index, T item);
 
         int size();
+        String toString();
 }
