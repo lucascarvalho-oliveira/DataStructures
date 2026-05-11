@@ -23,7 +23,6 @@ public class Main {
             System.out.println("9 - Get");
             System.out.println("10 - Set");
             System.out.println("11 - Clear");
-            System.out.println("12 - Mostrar Lista");
             System.out.println("0 - Sair");
             System.out.println("Escolha: ");
             opcao = sc.nextInt();sc.nextLine();
@@ -110,10 +109,6 @@ public class Main {
                 case 11:
                     lista.clear();
                     System.out.println("Lista limpa!");
-                    break;
-
-                case 12:
-                    System.out.println(lista);
                     break;
 
                 case 0:
